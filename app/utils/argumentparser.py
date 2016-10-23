@@ -7,8 +7,8 @@ def ArgumentParser():
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_dir', type=str, default='data',
                         help='data directory containing input.txt and label.txt')
-    parser.add_argument('--glove_file_path', type=str, default='vectors.txt',
-                        help='path to file for glove vectors')
+    parser.add_argument('--embedding_file_path', type=str, default='vectors.txt',
+                        help='path to file for embedding vectors')
     parser.add_argument('--model_dir', type=str, default='model',
                         help='directory to store checkpointed models')
     parser.add_argument('--nb_words', type=int, default=20000,

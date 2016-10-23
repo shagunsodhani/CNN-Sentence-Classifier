@@ -19,7 +19,7 @@ def main():
 
 def train(args):
     print('Reading word vectors.')
-    embeddings_index = read_glove_vectors(args.glove_file_path)
+    embeddings_index = read_glove_vectors(args.embedding_file_path)
     print('Found {} word vectors.'.format(len(embeddings_index)))
 
     # remote = callbacks.RemoteMonitor(root='http://localhost:9000')
