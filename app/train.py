@@ -1,7 +1,6 @@
 from __future__ import print_function
 
 import numpy as np
-from keras import callbacks
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 from keras.utils.np_utils import to_categorical
