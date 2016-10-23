@@ -18,3 +18,4 @@ Simplified implementation of "Convolutional Neural Networks for Sentence Classif
 ## References
 
 * [Kim, Yoon. "Convolutional neural networks for sentence classification." arXiv preprint arXiv:1408.5882 (2014)](https://arxiv.org/abs/1408.5882)
+* [Summary of paper](https://gist.github.com/shagunsodhani/9ae6d2364c278c97b1b2f4ec53255c56)
