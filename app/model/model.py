@@ -87,7 +87,8 @@ def _param_selector(args):
         number_of_filters_per_filtersize = [150, 150, 150]
         pool_length_list = [2, 2, 2]
         dropout_list = [0.25, 0.5]
-        optimizer = RMSprop(clipvalue=args.grad_clip)
+        optimizer = RMSprop(lr=args.learning_rate, decay=args.decay_rate,
+                            clipvalue=args.grad_clip)
         use_embeddings = True
         embeddings_trainable = True
     return (filtersize_list, number_of_filters_per_filtersize, pool_length_list,

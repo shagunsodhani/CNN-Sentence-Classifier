@@ -30,17 +30,15 @@ def ArgumentParser():
                         help='minibatch size')
     parser.add_argument('--num_epochs', type=int, default=10,
                         help='number of epochs')
-    parser.add_argument('--save_frequency', type=int, default=1000,
-                        help='save frequency')
     parser.add_argument('--grad_clip', type=float, default=5.,
                         help='clip gradients at this value')
-    parser.add_argument('--learning_rate', type=float, default=0.002,
+    parser.add_argument('--learning_rate', type=float, default=0.001,
                         help='learning rate')
-    parser.add_argument('--decay_rate', type=float, default=0.97,
+    parser.add_argument('--decay_rate', type=float, default=0.0,
                         help='decay rate for rmsprop')
-    parser.add_argument('--device', type=str, default='/cpu:0',
-                        help='Computing device to use for training. \
-                        \'/cpu:0\' to use CPU of the machine.\
-                        \'/gpu:0\' to use the first GPU of the machine (if there is a GPU).\
-                        \'/gpu:1\' to use the second GPU of the machine and so on.')
+    # parser.add_argument('--device', type=str, default='/cpu:0',
+    #                     help='Computing device to use for training. \
+    #                     \'/cpu:0\' to use CPU of the machine.\
+    #                     \'/gpu:0\' to use the first GPU of the machine (if there is a GPU).\
+    #                     \'/gpu:1\' to use the second GPU of the machine and so on.')
     return parser.parse_args()
