@@ -89,5 +89,6 @@ ENV/
 .ropeproject
 
 data/*
-
+model/*
 .idea
+

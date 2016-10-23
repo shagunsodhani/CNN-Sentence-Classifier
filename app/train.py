@@ -1,6 +1,9 @@
 from __future__ import print_function
 
+import os
+
 import numpy as np
+from keras.callbacks import ModelCheckpoint
 from keras.preprocessing.sequence import pad_sequences
 from keras.preprocessing.text import Tokenizer
 from keras.utils.np_utils import to_categorical
@@ -21,8 +24,6 @@ def train(args):
     print('Reading word vectors.')
     embeddings_index = read_glove_vectors(args.embedding_file_path)
     print('Found {} word vectors.'.format(len(embeddings_index)))
-
-    # remote = callbacks.RemoteMonitor(root='http://localhost:9000')
 
     print('Processing input data')
     texts, labels_index, labels = read_input_data(args.data_dir)
@@ -72,8 +73,17 @@ def train(args):
     args.len_labels_index = len(labels_index)
 
     model = model_selector(args, embedding_matrix)
+
+    checkpoint_filepath = os.path.join(args.model_dir, "weights.best.hdf5")
+    checkpoint = ModelCheckpoint(checkpoint_filepath, monitor='val_loss',
+                                 verbose=1, save_best_only=True)
+    callbacks_list = [checkpoint]
+
     model.fit(x_train, y_train, validation_data=(x_val, y_val),
-              nb_epoch=args.num_epochs, batch_size=args.batch_size)
+              nb_epoch=args.num_epochs, batch_size=args.batch_size, callbacks=callbacks_list)
+    model_json = model.to_json()
+    with open(os.path.join(args.model_dir, "model.json"), "w") as json_file:
+        json_file.write(model_json)
 
 
 if __name__ == '__main__':
