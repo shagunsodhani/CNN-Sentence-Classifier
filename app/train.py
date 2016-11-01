@@ -78,12 +78,12 @@ def train(args):
     checkpoint = ModelCheckpoint(checkpoint_filepath, monitor='val_loss',
                                  verbose=1, save_best_only=True)
     callbacks_list = [checkpoint]
-
-    model.fit(x_train, y_train, validation_data=(x_val, y_val),
-              nb_epoch=args.num_epochs, batch_size=args.batch_size, callbacks=callbacks_list)
     model_json = model.to_json()
     with open(os.path.join(args.model_dir, "model.json"), "w") as json_file:
         json_file.write(model_json)
+
+    model.fit(x_train, y_train, validation_data=(x_val, y_val),
+              nb_epoch=args.num_epochs, batch_size=args.batch_size, callbacks=callbacks_list)
 
 
 if __name__ == '__main__':
