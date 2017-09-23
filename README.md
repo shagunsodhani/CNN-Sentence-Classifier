@@ -1,5 +1,6 @@
 # CNN-Sentence-Classifier
 Simplified implementation of "Convolutional Neural Networks for Sentence Classification" paper
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.971868.svg)](https://doi.org/10.5281/zenodo.971868)
 
 ## Usage
 
